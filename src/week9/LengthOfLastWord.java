@@ -27,11 +27,22 @@ public class LengthOfLastWord {
                 return counter;
             }
             counter++;
-
         }
 
         return counter;
     }
+
+
+    public static int lengthOfLastWord2(String s){
+        //0 ms Beats 100.00% of users with Java
+        //41.36 MB Beats 90.48% of users with Java
+
+        String[] words = s.split(" ");
+
+        return words[words.length-1].length();
+    }
+
+
 
 
     public static void main(String[] args) {
@@ -40,9 +51,9 @@ public class LengthOfLastWord {
         String s2 = "luffy is still joyboy";
         String s3 = "    day";
 
-//        System.out.println("lengthOfLastWord(s1) = " + lengthOfLastWord(s1));
-//        System.out.println("lengthOfLastWord(s2) = " + lengthOfLastWord(s2));
-        System.out.println("lengthOfLastWord(s3) = " + lengthOfLastWord(s3));
+        System.out.println("lengthOfLastWord(s1) = " + lengthOfLastWord2(s1));
+        System.out.println("lengthOfLastWord(s2) = " + lengthOfLastWord2(s2));
+        System.out.println("lengthOfLastWord(s3) = " + lengthOfLastWord2(s3));
 
     }
 
