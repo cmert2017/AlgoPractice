@@ -1,6 +1,7 @@
 package w8;
 
-import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class RemoveDuplicatesfromSortedArray {
 
@@ -29,17 +30,31 @@ public class RemoveDuplicatesfromSortedArray {
     //nums is sorted in non-decreasing order.
 
 
-    public static int[] removeDuplicatesfromSortedArray(int[] nums){
+    public static int removeDuplicatesfromSortedArray(int[] nums){
+
+        //5 ms Beats 8.44% of users with Java
+        // 44.46 MB Beats 88.33% of users with Java
+
+        Set<Integer> numsNonduplicates = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            numsNonduplicates.add(nums[i]);
+        }
+
+        int i=0;
+        for (int temp : numsNonduplicates) {
+            nums[i]=temp;
+            i++;
+        }
 
 
-        return nums;
+        return numsNonduplicates.size();
     }
 
 
     public static void main(String[] args) {
         int[] nums = {1, 1, 2};
 
-        System.out.println("Arrays.toString(removeDuplicatesfromSortedArray(nums)) = " + Arrays.toString(removeDuplicatesfromSortedArray(nums)));
+        System.out.println("Arrays.toString(removeDuplicatesfromSortedArray(nums)) = " + removeDuplicatesfromSortedArray(nums));
 
     }
 }
